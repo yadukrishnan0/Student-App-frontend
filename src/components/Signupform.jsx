@@ -52,8 +52,8 @@ const SignupForm = ({ initialValues,handlesubmit}) => {
                         className="px-3 shadow-sm border border-[#00000015] focus:border-blue-600 outline-none w-96 h-10"
                         placeholder="Confirm Password"
                     />
-                 {touched.confirmPassword&& errors.confirmPassword && (
-                    <small className="text-red-400">{errors.confirmPassword}</small>
+                 {touched.confirmPassword&& errors. confirmPassword&& (
+                    <small className="text-red-400">{errors. confirmPassword}</small>
                   )}
 
                     <button

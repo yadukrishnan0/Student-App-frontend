@@ -1,8 +1,8 @@
 import React from 'react'
 import Signupform from '../../components/Signupform'
 import axios from 'axios';
-function Signupage() {
-
+import { useNavigate } from 'react-router-dom';
+function AdminSignup() {
   const initialValues ={
     name:"",
     email:"",
@@ -11,9 +11,12 @@ function Signupage() {
   }
   const handlesubmit = async(values) => {
 
-    const data =values
- const response =await axios.post('http://localhost:3000/signup', data )
-
+    const datas =values
+ const response =await axios.post('http://localhost:3000/admin/signup', datas );
+const data =response.data
+if(data.success ==true){
+  Navigate('/login')
+}
   };
   return (
 
@@ -23,7 +26,7 @@ function Signupage() {
         <div className="flex shadow-md h-[500px] p-3">
           <div className="right_div flex-1 flex flex-col justify-center items-center gap-3">
             <div className="flex w-full justify-around">
-              <h1 className="text-[1.5rem] font-thin">Create account</h1>
+              <h1 className="text-[1.5rem] font-thin">Create Admin</h1>
             </div>
             <Signupform initialValues={initialValues} handlesubmit={handlesubmit}/>
           </div>
@@ -34,4 +37,4 @@ function Signupage() {
   )
 }
 
-export default Signupage
+export default AdminSignup
