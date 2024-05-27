@@ -1,8 +1,9 @@
 import React from 'react'
 import Signupform from '../../components/Signupform'
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 function Signupage() {
-
+  const navigate = useNavigate();
   const initialValues ={
     name:"",
     email:"",
@@ -11,9 +12,12 @@ function Signupage() {
   }
   const handlesubmit = async(values) => {
 
-    const data =values
- const response =await axios.post('http://localhost:3000/signup', data )
-
+    const datas =values
+ const response =await axios.post('http://localhost:3000/signup', datas )
+const data =response.data
+if(data.success == true){
+  navigate('/login')
+}
   };
   return (
 

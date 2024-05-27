@@ -1,26 +1,27 @@
-import React from 'react'
-import Signupform from '../../components/Signupform'
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import Signupform from "../../components/Signupform";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function AdminSignup() {
-  const initialValues ={
-    name:"",
-    email:"",
-    password:"",
-    confirmPassword:""
-  }
-  const handlesubmit = async(values) => {
-
-    const datas =values
- const response =await axios.post('http://localhost:3000/admin/signup', datas );
-const data =response.data
-if(data.success ==true){
-  Navigate('/login')
-}
+  const navigate = useNavigate();
+  const initialValues = {
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
+  const handlesubmit = async (values) => {
+    const datas = values;
+    const response = await axios.post(
+      "http://localhost:3000/admin/signup",
+      datas
+    );
+    const data = response.data;
+    if (data.success == true) {
+      navigate("/admin/login");
+    }
   };
   return (
-
-   
     <>
       <div className="w-full h-screen flex justify-center items-center ">
         <div className="flex shadow-md h-[500px] p-3">
@@ -28,13 +29,15 @@ if(data.success ==true){
             <div className="flex w-full justify-around">
               <h1 className="text-[1.5rem] font-thin">Create Admin</h1>
             </div>
-            <Signupform initialValues={initialValues} handlesubmit={handlesubmit}/>
+            <Signupform
+              initialValues={initialValues}
+              handlesubmit={handlesubmit}
+            />
           </div>
-            
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default AdminSignup
+export default AdminSignup;
