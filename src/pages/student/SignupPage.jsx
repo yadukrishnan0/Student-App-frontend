@@ -5,8 +5,11 @@ function Signupage() {
     name:"",
     email:"",
     password:"",
-    confirmpassword:""
+    confirmPassword:""
   }
+  const handlesubmit = (values) => {
+  console.log(values)
+  };
   return (
 
    
@@ -17,7 +20,7 @@ function Signupage() {
             <div className="flex w-full justify-around">
               <h1 className="text-[1.5rem] font-thin">Create account</h1>
             </div>
-            <Signupform initialValues={initialValues}/>
+            <Signupform initialValues={initialValues} handlesubmit={handlesubmit}/>
           </div>
             
         </div>

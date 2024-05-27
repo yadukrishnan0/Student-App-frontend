@@ -7,14 +7,12 @@ import { validationSchema } from "../utilities/Validation";
 
 
 
-const SignupForm = ({ initialValues}) => {
+const SignupForm = ({ initialValues,handlesubmit}) => {
     return (
         <Formik
             initialValues={ initialValues}
             validationSchema={validationSchema}
-            onSubmit={(values) => {
-                console.log(values);
-            }}
+            onSubmit={handlesubmit}
         >
             {({ isSubmitting ,errors,touched,setFieldValue}) => (
                 <Form className="flex flex-col gap-2">
