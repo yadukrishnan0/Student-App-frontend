@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../../components/Headers";
 import { addcourseSchema } from "../../utilities/Validation";
 import { Formik, Form, Field, ErrorMessage } from 'formik'; // Import Formik components and ErrorMessage
 import axiosInstance from "../../../instance/axiosInstance";
-
+import { useNavigate, useParams } from "react-router-dom";
 function Addcourse() {
+  const navigate = useNavigate();
   const initialValues = {
     Coursename: '',
     fee: '',
@@ -12,9 +13,23 @@ function Addcourse() {
     teachername: ''
   };
 
+  
+  const { courseId } = useParams();
+  useEffect(()=>{
+   if(courseId){
+  const editCourse =()=>{
+
+  }
+   }
+  },[])
+
   const handlesubmit =async (values) => {
-    const data = values
-    const response =await axiosInstance.post('/admin/addcourse', data)
+    const datas = values
+    const response =await axiosInstance.post('/admin/addcourse', datas)
+    const{data}=response
+    if(data.success === true){
+      navigate("/admin/courselist");
+    }
   };
 
   return (

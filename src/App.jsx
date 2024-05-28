@@ -21,6 +21,7 @@ function App() {
           <Route path='/admin/students' element={<TableDetails/>}/>
           <Route path='/admin/addcourse' element={<AddCourse />}/>
           <Route path='/admin/courselist' element={<CourseList/>}/>
+          <Route path='/admin/editcourse/:courseId' element={<AddCourse />}/>
         </Routes>
       </BrowserRouter>
     </>

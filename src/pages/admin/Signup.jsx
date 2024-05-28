@@ -12,6 +12,9 @@ function AdminSignup() {
   };
   const handlesubmit = async (values) => {
     const datas = values;
+    try{
+
+    
     const response = await axios.post(
       "http://localhost:3000/admin/signup",
       datas
@@ -20,6 +23,9 @@ function AdminSignup() {
     if (data.success == true) {
       navigate("/admin/login");
     }
+  }catch(err){
+    console.log(err)
+  }
   };
   return (
     <>

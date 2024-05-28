@@ -4,8 +4,9 @@ import Header from "../../components/Headers";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import axiosInstance from "../../../instance/axiosInstance";
+
 function  CourseList() {
-const[studentsData,setStudentsData]=useState([])
+const[courseData,setCourseData]=useState([])
 
 useEffect(()=>{
   fetchData()
@@ -13,9 +14,9 @@ useEffect(()=>{
 
 const fetchData = async () => {
   try {
-    const response = await axiosInstance.get('/admin/students');
+    const response = await axiosInstance.get('/admin/courselist');
     const { data, status } = response;
-    setStudentsData(data.studentsDetails)
+    setCourseData(data?.courseData)
     console.log(data)
   } catch (error) {
     console.error(error);
@@ -36,14 +37,14 @@ const fetchData = async () => {
           </tr>
         </thead>
         <tbody>
-          {studentsData.map((student) => (
-            <tr key={student._id} className="text-center">
-              <td className="border border-gray-800 px-4 py-2">{student.name}</td>
-              <td className="border border-gray-800 px-4 py-2">{student.email}</td>
-              <td className="border border-gray-800 px-4 py-2">{student.name}</td>
-              <td className="border border-gray-800 px-4 py-2">{student.email}</td>
+          {courseData.map((course) => (
+            <tr key={course._id} className="text-center">
+              <td className="border border-gray-800 px-4 py-2">{course.Coursename}</td>
+              <td className="border border-gray-800 px-4 py-2">{course.fee}</td>
+              <td className="border border-gray-800 px-4 py-2">{course.Description}</td>
+              <td className="border border-gray-800 px-4 py-2">{course.teachername}</td>
               <td className="border border-gray-800 px-4 py-2">
-                <Link to={`/editstudent/${student._id}`}>
+                <Link to={`/admin/editcourse/${course._id}`}>
                   <button className="text-yellow-500 hover:text-yellow-700 mx-2 text-xl">
                     <FaEdit />
                   </button>
