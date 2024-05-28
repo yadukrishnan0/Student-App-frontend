@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function Login() {
+import { Formik, Form, Field} from "formik";
+function Login({intialValues,handleSumbit}) {
   return (
     <>
       <div className="w-full h-screen flex justify-center items-center ">
@@ -9,15 +10,19 @@ function Login() {
             <div className="flex w-full justify-around">
               <h1 className="text-[1.5rem] font-thin">Login</h1>
             </div>
-            <form className="flex flex-col gap-2">
-              <input
+            <Formik
+            initialValues={intialValues}
+            onSubmit={handleSumbit}>
+            {({}) => (
+            <Form className="flex flex-col gap-2">
+              <Field
                 type="email"
                 name="email"
                 className="px-3 shadow-sm border border-[#00000015] focus:border-blue-600 outline-none w-96 h-10"
                 placeholder="Email"
               />
 
-              <input
+              <Field
                 type="password"
                 name="password"
                 className="px-3 shadow-sm border border-[#00000015] focus:border-blue-600 outline-none w-96 h-10"
@@ -31,12 +36,14 @@ function Login() {
                 Login
               </button>
 
-              <Link to="/login">
+              <Link to="/signup">
                 <h1 className="text-blue-400">
-                  Already have an account? Login
+                   signup?
                 </h1>
               </Link>
-            </form>
+            </Form>
+               )}
+            </Formik>
           </div>
         </div>
       </div>

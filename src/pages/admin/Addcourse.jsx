@@ -47,7 +47,7 @@ function Addcourse() {
 
   return (
     <>
-      <Header />
+     
       <div className="w-full h-screen flex justify-center items-center">
         <div className="flex shadow-md h-[500px] p-3">
           <div className="right_div flex-1 flex flex-col justify-center items-center gap-3">

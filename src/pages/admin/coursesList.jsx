@@ -39,14 +39,14 @@ function CourseList() {
 
   return (
     <>
-      <Header />
+      
       <table className="min-w-full table-auto">
         <thead>
           <tr className="bg-gray-900 text-[#3c9b9b]">
             <th className="px-4 py-2">Coursename</th>
             <th className="px-4 py-2">fee</th>
             <th className="px-4 py-2">Description</th>
-            <th className="px-4 py-2">teachername</th>
+            <th className="px-4 py-2">Teachers</th>
             <th className="px-4 py-2">Action</th>
           </tr>
         </thead>
